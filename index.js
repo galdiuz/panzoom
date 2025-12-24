@@ -420,7 +420,7 @@ function createPanZoom(domElement, options) {
       keepTransformInsideBounds();
     } else {
       var transformAdjusted = keepTransformInsideBounds();
-      if (!transformAdjusted) transform.scale *= ratio;
+      if (!transformAdjusted || ratio > 1) transform.scale *= ratio;
     }
 
     triggerEvent('zoom');
@@ -1098,4 +1098,3 @@ function autoRun() {
 }
 
 autoRun();
-	
