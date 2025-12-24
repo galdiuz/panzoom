@@ -2,23 +2,21 @@
 /**
  * Allows to drag and zoom svg elements
  */
-var wheel = require('wheel');
-var animate = require('amator');
-var eventify = require('ngraph.events');
-var kinetic = require('./lib/kinetic.js');
-var createTextSelectionInterceptor = require('./lib/makeTextSelectionInterceptor.js');
+import wheel from 'wheel';
+import animate from 'amator';
+import eventify from 'ngraph.events';
+import kinetic from './lib/kinetic.js';
+import createTextSelectionInterceptor from './lib/makeTextSelectionInterceptor.js';
 var domTextSelectionInterceptor = createTextSelectionInterceptor();
 var fakeTextSelectorInterceptor = createTextSelectionInterceptor(true);
-var Transform = require('./lib/transform.js');
-var makeSvgController = require('./lib/makeSvgController.js');
-var makeDomController = require('./lib/makeDomController.js');
+import Transform from './lib/transform.js';
+import makeSvgController from './lib/makeSvgController.js';
+import makeDomController from './lib/makeDomController.js';
 
 var defaultZoomSpeed = 1;
 var defaultDoubleTapZoomSpeed = 1.75;
 var doubleTapSpeedInMS = 300;
 var clickEventTimeInMS = 200;
-
-module.exports = createPanZoom;
 
 /**
  * Creates a new instance of panzoom, so that an object can be panned and zoomed
@@ -26,7 +24,7 @@ module.exports = createPanZoom;
  * @param {DOMElement} domElement where panzoom should be attached.
  * @param {Object} options that configure behavior.
  */
-function createPanZoom(domElement, options) {
+export default function createPanZoom(domElement, options) {
   options = options || {};
 
   var panController = options.controller;
